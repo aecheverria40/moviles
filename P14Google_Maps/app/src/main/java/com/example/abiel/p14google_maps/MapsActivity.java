@@ -2,6 +2,7 @@ package com.example.abiel.p14google_maps;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -9,12 +10,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
-
+    private Marker markerPrueba;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
@@ -53,5 +56,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng valle = new LatLng(19.1981806,-100.1873905);
         mMap.addMarker(new MarkerOptions().position(valle).title("Valle de Bravo").
         snippet("Valle precioso.").icon(BitmapDescriptorFactory.fromResource(R.drawable.valle)));
+
+        LatLng zacatecas = new LatLng(23.0677013,-104.7920505);
+        mMap.addMarker(new MarkerOptions().position(zacatecas).draggable(true).title("Zacatecas").
+        snippet("Zacatecas empieza con Z").icon(BitmapDescriptorFactory.fromResource(R.drawable.zacatecas)));
+
+        LatLng hermosillo = new LatLng(29.082082,-111.129417);
+        mMap.addMarker(new MarkerOptions().position(hermosillo).title("Hermosillo").
+        snippet("illo").icon(BitmapDescriptorFactory.fromResource(R.drawable.hermosillo)));
+
+        //Prueba
+        LatLng prueba = new LatLng(19.0400339,-98.2631777);
+        markerPrueba = googleMap.addMarker(new MarkerOptions().position(prueba).
+        title("Prueba"));
+
+        //Zoom de la camara
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mexico, 7));
+        googleMap.setOnMarkerClickListener(this);
     }
+
+    @Override
+    public boolean onMarkerClick(Marker marker){
+        String lat, lang;
+        lat = Double.toString(marker.getPosition().latitude);
+        lang = Double.toString(marker.getPosition().longitude);
+        if (true){
+
+        }
+        return false;
+    }
+
+//    @Override
+//    public boolean onMarkerClick(Marker marker) {
+//        if (marker.equals(markerPrueba)){
+//            Toast.makeText(this, "Evento click", Toast.LENGTH_SHORT).show();
+//        }
+//        return false;
+//    }
 }
