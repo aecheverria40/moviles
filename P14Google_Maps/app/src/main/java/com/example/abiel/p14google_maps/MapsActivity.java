@@ -2,6 +2,7 @@ package com.example.abiel.p14google_maps;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,10 +14,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+import java.util.Locale;
+
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener,
+GoogleMap.OnMarkerDragListener{
 
     private GoogleMap mMap;
     private Marker markerPrueba;
+    private Marker markerDrag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +76,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerPrueba = googleMap.addMarker(new MarkerOptions().position(prueba).
         title("Prueba"));
 
+        //Morelos
+        LatLng morelos = new LatLng(18.7324794,-99.3438828);
+        markerDrag = googleMap.addMarker(new MarkerOptions().position(morelos).title("Morelos").
+        draggable(true));
+
         //Zoom de la camara
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mexico, 7));
         googleMap.setOnMarkerClickListener(this);
+        googleMap.setOnMarkerDragListener(this);
     }
 
     @Override
@@ -81,9 +93,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         lat = Double.toString(marker.getPosition().latitude);
         lang = Double.toString(marker.getPosition().longitude);
         if (true){
-
+            Toast.makeText(this, lat + lang, Toast.LENGTH_LONG).show();
         }
         return false;
+    }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+        if (marker.equals(markerDrag)){
+            Toast.makeText(this, "Start",
+                    Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+        if (marker.equals(markerDrag)){
+            String newTitle = String.format(Locale.getDefault(), getString(R.string.marker_detail_latlng),
+                    marker.getPosition().latitude,
+                    marker.getPosition().longitude);
+
+            setTitle(newTitle);
+        }
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        if (marker.equals(markerDrag)){
+            Toast.makeText(this, "Finish",
+                    Toast.LENGTH_LONG).show();
+            setTitle(R.string.sitios);
+        }
     }
 
 //    @Override
