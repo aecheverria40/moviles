@@ -1,5 +1,6 @@
 package com.example.abiel.p14google_maps;
 
+import android.graphics.BitmapRegionDecoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +18,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.Locale;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener,
-GoogleMap.OnMarkerDragListener{
+GoogleMap.OnMarkerDragListener, GoogleMap.OnInfoWindowClickListener{
 
     private GoogleMap mMap;
     private Marker markerPrueba;
-    private Marker markerDrag;
+    private Marker markerDrag, InfoWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,16 @@ GoogleMap.OnMarkerDragListener{
         markerDrag = googleMap.addMarker(new MarkerOptions().position(morelos).title("Morelos").
         draggable(true));
 
+        //Morelos
+        LatLng toluca = new LatLng(19.294099,-99.7012544);
+        InfoWindow = googleMap.addMarker(new MarkerOptions().position(toluca).title("Toluca").
+        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
         //Zoom de la camara
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mexico, 7));
         googleMap.setOnMarkerClickListener(this);
         googleMap.setOnMarkerDragListener(this);
+        googleMap.setOnInfoWindowClickListener(this);
     }
 
     @Override
@@ -124,6 +131,14 @@ GoogleMap.OnMarkerDragListener{
             Toast.makeText(this, "Finish",
                     Toast.LENGTH_LONG).show();
             setTitle(R.string.sitios);
+        }
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        if (marker.equals(InfoWindow)){
+            TolucaFragment.newInstance(marker.getTitle(), getString(R.string.TolucaInfo)).
+                    show(getSupportFragmentManager(), null);
         }
     }
 
