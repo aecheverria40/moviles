@@ -51,6 +51,7 @@
         <Button
             android:id="@+id/btn_sitios"
             android:layout_width="match_parent"
+            android:onClick="MapaSitios"
             android:layout_height="wrap_content"
             android:text="Sitios Turisticos" />
 

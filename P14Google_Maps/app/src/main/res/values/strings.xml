@@ -4,4 +4,5 @@
     <string name="sitios">Sitios Turisticos</string>
     <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
     <string name="TolucaInfo">El Club Deportivo Toluca es un equipo del fútbol profesional que actualmente participa en la Primera División de México.</string>
+    <string name="title_activity_maps_tipos">Map</string>
 </resources>
