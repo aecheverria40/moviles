@@ -28,4 +28,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void MapaSitios(View view){
+        Intent intent = new Intent(getApplicationContext(), MapsActivityTipos.class);
+        startActivity(intent);
+    }
+
+    public void TipoMapas(View view){
+        Intent intent = new Intent(getApplicationContext(), MapsActivityTipos.class);
+        startActivity(intent);
+    }
+
+    public void miLocalizacion(View view){
+        Intent intent = new Intent(getApplicationContext(),MapsMiLocalizacion.class);
+        startActivity(intent);
+    }
 }

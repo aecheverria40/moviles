@@ -51,18 +51,21 @@
         <Button
             android:id="@+id/btn_sitios"
             android:layout_width="match_parent"
+            android:onClick="MapaSitios"
             android:layout_height="wrap_content"
             android:text="Sitios Turisticos" />
 
         <Button
             android:id="@+id/btn_tipos"
             android:layout_width="match_parent"
+            android:onClick="MapaSitios"
             android:layout_height="wrap_content"
             android:text="Tipos de Mapas" />
 
         <Button
             android:id="@+id/btn_ubicacion"
             android:layout_width="match_parent"
+            android:onClick="miLocalizacion"
             android:layout_height="wrap_content"
             android:text="Mi Ubicaciones" />
     </LinearLayout>

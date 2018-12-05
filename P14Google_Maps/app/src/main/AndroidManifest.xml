@@ -37,7 +37,13 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/sitios" />
+        <activity
+            android:name=".MapsActivityTipos"
+            android:label="@string/title_activity_maps_tipos" />
+        <activity
+            android:name=".MapsMiLocalizacion"
+            android:label="@string/title_activity_maps_mi_localizacion"></activity>
     </application>
 
 </manifest>
