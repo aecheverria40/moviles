@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         dataSnapshot.getChildren()) {
                     Persona p = objSnapshot.getValue(Persona.class);
                     listPersona.add(p);
-                    personaArrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R)
+                    personaArrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R.)
 
                 }
             }

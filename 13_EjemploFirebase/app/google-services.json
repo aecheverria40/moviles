@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "488829471354",
+    "firebase_url": "https://ejemplofirebase-2006f.firebaseio.com",
+    "project_id": "ejemplofirebase-2006f",
+    "storage_bucket": "ejemplofirebase-2006f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488829471354:android:c9ab57583488abb9",
+        "android_client_info": {
+          "package_name": "com.example.brenda.a13_ejemplofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488829471354-8kgmbsilj4k90loiji5b48fmcg7b0k35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brenda.a13_ejemplofirebase",
+            "certificate_hash": "b7f34ead94b0b2b2e9a8ec8c5d3437a7c1d0a2be"
+          }
+        },
+        {
+          "client_id": "488829471354-ns6n15eg8d45aftgj6u0c7r4su4g2erg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwTL0B5V2D2BSUVoD7pWWvQuLw28pFNWM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488829471354-ns6n15eg8d45aftgj6u0c7r4su4g2erg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
