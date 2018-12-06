@@ -3,15 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/ic_add"
+        android:id="@+id/icon_add"
+        android:icon="@drawable/ic_add"
         android:title="Edit Done"
         app:showAsAction="always"/>
+
     <item
-        android:id="@+id/ic_save"
+        android:id="@+id/icon_save"
+        android:icon="@drawable/ic_save"
         android:title="Edit Done"
         app:showAsAction="always"/>
+
     <item
-        android:id="@+id/ic_delete"
+        android:id="@+id/icon_delete"
+        android:icon="@drawable/ic_delete"
         android:title="Edit Done"
         app:showAsAction="always"/>
 </menu>

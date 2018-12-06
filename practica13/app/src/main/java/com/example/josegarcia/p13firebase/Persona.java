@@ -1,13 +1,21 @@
 package com.example.josegarcia.p13firebase;
 
 public class Persona {
-
+    public String uid;
     String nombre;
     String apellido;
     String correo;
     String password;
 
     public Persona(){}
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getNombre() {
         return nombre;
